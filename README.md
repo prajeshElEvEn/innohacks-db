@@ -1,6 +1,6 @@
 # CoviZone
 
-This project makes extensive use of Machine Learing to detect the people wandering without mask in order to spread awareness about the ongoing pandemic crisis. The project is in development and your suggestions to improve this project are always welcome.
+This project makes extensive use of Machine Learning to detect the people wandering without mask in order to spread awareness about the ongoing pandemic crisis. The project is in development and your suggestions to improve this project are always welcome.
 
 ## Resources Used
 

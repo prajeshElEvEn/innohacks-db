@@ -99,7 +99,7 @@ const Main = () => {
                 m={'1rem auto'}
                 w={{ base: '100%', md: '60%' }}
             >
-                This project makes extensive use of Machine Learing to detect the people wandering without mask in order to spread awareness about the ongoing pandemic crisis. The project is in development and your suggestions to improve this project are always welcome.
+                This project makes extensive use of Machine Learning to detect the people wandering without mask in order to spread awareness about the ongoing pandemic crisis. The project is in development and your suggestions to improve this project are always welcome.
             </Text>
             <Box
                 d='flex'
