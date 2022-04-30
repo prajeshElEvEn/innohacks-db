@@ -10,7 +10,7 @@ const Navbar = () => {
             d="flex"
             alignItems="center"
             justifyContent="space-between"
-            w={{ base: '100%', md: '80%', lg: '60%' }}
+            w={{ base: '100%', md: '96%', lg: '80%' }}
         // bg="gray.100"
         >
             <Menu>
@@ -18,6 +18,7 @@ const Navbar = () => {
                     as={IconButton}
                     aria-label='Options'
                     icon={<HamburgerIcon />}
+                // colorScheme='white'
                 // variant='outline'
                 />
                 <MenuList>
