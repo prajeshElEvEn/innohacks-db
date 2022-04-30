@@ -236,7 +236,7 @@ const Cards = () => {
                     <Heading as='h3' size='lg'
                         fontFamily={'Poppins'}
                     >
-                        Percentage of People without mask
+                        Percentage of People without Mask
                     </Heading>
                     <Heading as='h2' size='2xl'
                         fontFamily={'Poppins'}
