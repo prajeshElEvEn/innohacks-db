@@ -3,6 +3,8 @@ import './App.css';
 import db from './config/config';
 import { onValue, ref } from 'firebase/database'
 import Navbar from './components/Navbar';
+import Main from './components/Main';
+import Cards from './components/Cards';
 
 function App() {
   const [people, setPeople] = useState([])
@@ -70,6 +72,8 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <Main />
+      <Cards />
       <div className="main">
         <div className='zone'>
           <div className='no-of-zones'>
