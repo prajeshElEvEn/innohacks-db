@@ -4,11 +4,12 @@ This project makes extensive use of Machine Learning to detect the people wander
 
 ## Resources Used
 
-- React
-- Chakra UI
-- Chart.js
-- Python
-- Firebase
+- [React](https://reactjs.org/)
+- [Chakra UI](https://chakra-ui.com/)
+- [Chart.js](https://www.chartjs.org/)
+- [Python](https://github.com/Ayushsingh07/covid_spread01)
+  - The scripts used are to be found [here](https://github.com/Ayushsingh07/covid_spread01)
+- [Firebase](https://firebase.google.com/)
 
 ## Status
 
