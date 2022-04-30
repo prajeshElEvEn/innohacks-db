@@ -10,7 +10,7 @@ const Navbar = () => {
             d="flex"
             alignItems="center"
             justifyContent="space-between"
-            w={{ base: '100%', md: '60%' }}
+            w={{ base: '100%', md: '80%', lg: '60%' }}
         // bg="gray.100"
         >
             <Menu>
