@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Main from './components/Main';
 import Cards from './components/Cards';
+import Chart from './components/Chart';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <Navbar />
       <Main />
       <Cards />
+      <Chart />
     </div>
   );
 }

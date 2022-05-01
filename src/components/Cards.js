@@ -11,7 +11,7 @@ const Cards = () => {
     const [noOfZones, setNoOfZones] = useState(0)
     const [totalPeople, setTotalPeople] = useState(0)
     const [peopleWithoutMask, setPeopleWithoutMask] = useState(0)
-    // let zones = 0
+
     const peopleRef = ref(db, 'covizone-9c238-default-rtdb/name')
     const placesRef = ref(db, 'placeA')
     useEffect(() => {
@@ -64,6 +64,7 @@ const Cards = () => {
         }
 
         getPlaces()
+        calcPercentage()
         getPeople()
     }, [])
 
@@ -90,6 +91,10 @@ const Cards = () => {
                 Zonal Statistics
                 <UpDownIcon
                     ml={'1rem'}
+                    transition='all 0.3s ease-in-out'
+                    _hover={{
+                        transform: 'translateY(-0.5rem)',
+                    }}
                 />
             </Heading>
             {/* <Divider /> */}
@@ -195,6 +200,7 @@ const Cards = () => {
                     boxShadow={'0 0.5rem 1rem rgba(0, 0, 0, 0.15)'}
                     transition={'all 0.2s ease-in-out'}
                     _hover={{
+                        // bg: 'hsl(212, 86%, 64%)',
                         transform: 'scale(1.02)'
                     }}
                 >
@@ -230,6 +236,7 @@ const Cards = () => {
                     boxShadow={'0 0.5rem 1rem rgba(0, 0, 0, 0.15)'}
                     transition={'all 0.2s ease-in-out'}
                     _hover={{
+                        // bg: 'hsl(0, 78%, 62%)',
                         transform: 'scale(1.02)'
                     }}
                 >
@@ -250,7 +257,7 @@ const Cards = () => {
                     </Text>
                 </Box>
             </Box>
-        </Box>
+        </Box >
     )
 }
 
