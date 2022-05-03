@@ -80,7 +80,7 @@ const Cards = () => {
             m={'auto'}
             p={{ base: '6rem 0.2rem', md: '6rem 2rem' }}
             bg='white'
-            borderRadius={{ base: '2rem 2rem 0 0', md: '4rem 4rem 0 0' }}
+            borderRadius={{ base: '2rem', md: '4rem 4rem' }}
         >
             <Heading as='h2' size='xl'
                 textAlign={'center'}

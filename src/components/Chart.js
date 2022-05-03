@@ -1,8 +1,9 @@
 import { EditIcon } from '@chakra-ui/icons'
-import { Box, Heading } from '@chakra-ui/react'
+import { Box, Heading, layout, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
 import { onValue, ref } from 'firebase/database'
 import React, { useEffect, useState } from 'react'
-import { Bar } from 'react-chartjs-2'
+import { Bar, Line } from 'react-chartjs-2'
+import { Chart as ChartJS } from 'chart.js/auto'
 import db from '../config/config'
 
 const Chart = () => {
@@ -16,6 +17,7 @@ const Chart = () => {
     const [peopleWithoutMaskArray, setPeopleWithoutMaskArray] = useState([])
     const [sumOfPeopleWithoutMask, setSumOfPeopleWithoutMask] = useState(0)
     const [zonesArray, setZonesArray] = useState([])
+    const [uniqueZonesArray, setUniqueZonesArray] = useState([])
     // let zones = 0
     const peopleRef = ref(db, 'covizone-9c238-default-rtdb/name')
     const placesRef = ref(db, 'placeA')
@@ -49,7 +51,8 @@ const Chart = () => {
                     zonesArray.push(places[i].zone)
                 }
                 const uniqueZonesArray = [...new Set(zonesArray)]
-                console.log(uniqueZonesArray)
+                // console.log(uniqueZonesArray)
+                setUniqueZonesArray(uniqueZonesArray)
                 setZonesArray(uniqueZonesArray)
 
                 const totalPeopleArray = []
@@ -62,7 +65,7 @@ const Chart = () => {
                     }
                     totalPeopleArray.push(sumOfPeople)
                 }
-                console.log(totalPeopleArray)
+                // console.log(totalPeopleArray)
                 setTotalPeopleArray(totalPeopleArray)
 
                 const peopleWithoutMaskArray = []
@@ -75,7 +78,7 @@ const Chart = () => {
                     }
                     peopleWithoutMaskArray.push(sumOfPeopleWithoutMask)
                 }
-                console.log(peopleWithoutMaskArray)
+                // console.log(peopleWithoutMaskArray)
                 setPeopleWithoutMaskArray(peopleWithoutMaskArray)
 
                 // let totalPeople = 0
@@ -98,19 +101,19 @@ const Chart = () => {
         getPlaces()
     }, [])
 
-
     return (
         <Box
             w={{ base: '100%', md: '96%', lg: '80%' }}
             m={'auto'}
-            bg='white'
-            p={{ base: '0 1rem 4rem 1rem', md: '0 3rem 4rem 3rem' }}
+            bg='#1967d2'
+            p={{ base: '0 1rem 4rem 1rem', md: '0 0 4rem 0' }}
         >
             <Heading as='h2' size='xl'
                 textAlign={'center'}
                 // textDecoration='underline'
                 fontFamily={'Poppins'}
-                m={'0 0 2rem 0'}
+                color='#fff'
+                m={'2rem 0'}
                 p={'1rem 0'}
             >
                 Graph
@@ -123,14 +126,58 @@ const Chart = () => {
                 />
             </Heading>
             <Box
-                bg='gray.100'
-                p={'2rem'}
-                borderRadius={'2rem'}
+                bg='white'
+                p={{ base: '1rem', md: '2rem' }}
+                borderRadius={{ base: '0.5rem', md: '2rem' }}
             >
-                {/* <Bar
-                // data={ }
-                // options={ }
-                /> */}
+                <Tabs variant='soft-rounded' colorScheme='green'>
+                    <TabList
+                        w={{ base: '100%', md: '80%', lg: '60%' }}
+                        m={'auto'}
+                    >
+                        <Tab
+                            w={'50%'}
+                        >Bar Chart</Tab>
+                        <Tab
+                            w={'50%'}
+                        >Line chart</Tab>
+                    </TabList>
+                    <TabPanels>
+                        <TabPanel>
+                            <Bar
+                                data={{
+                                    labels: uniqueZonesArray,
+                                    datasets: [{
+                                        label: 'Total People',
+                                        data: totalPeopleArray,
+                                        backgroundColor: '#1967d2',
+                                    }, {
+                                        label: 'People Without Mask',
+                                        data: peopleWithoutMaskArray,
+                                        backgroundColor: '#ff6b6b',
+                                    }]
+                                }}
+                            />
+                        </TabPanel>
+                        <TabPanel>
+                            <Line
+                                data={{
+                                    labels: uniqueZonesArray,
+                                    datasets: [{
+                                        label: 'Total People',
+                                        data: totalPeopleArray,
+                                        backgroundColor: '#1967d2',
+                                    }, {
+                                        label: 'People Without Mask',
+                                        data: peopleWithoutMaskArray,
+                                        backgroundColor: '#ff6b6b',
+                                    }]
+                                }}
+                            // options={ }
+                            />
+                        </TabPanel>
+                    </TabPanels>
+                </Tabs>
             </Box>
         </Box>
     )
