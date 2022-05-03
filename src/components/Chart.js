@@ -11,6 +11,7 @@ const Chart = () => {
     const [noOfZones, setNoOfZones] = useState(0)
     const [totalPeople, setTotalPeople] = useState(0)
     const [peopleWithoutMask, setPeopleWithoutMask] = useState(0)
+    const [zonesArray, setZonesArray] = useState([])
     // let zones = 0
     const peopleRef = ref(db, 'covizone-9c238-default-rtdb/name')
     const placesRef = ref(db, 'placeA')
@@ -26,18 +27,28 @@ const Chart = () => {
                 }
                 setNoOfZones(zoneList.length)
                 // console.log(zoneList.length)
-                console.log(zoneList)
+                // console.log(zoneList)
                 setZoneList(zoneList)
-                // const places = []
-                // // const zone = []
-                // for (let i in zoneList) {
-                //     for (let j in zoneList[i]) {
-                //         // console.log(zoneList[i][j])
-                //         places.push(zoneList[i][j])
-                //     }
-                // }
+                const places = []
+                // const zone = []
+                for (let i in zoneList) {
+                    for (let j in zoneList[i]) {
+                        // console.log(zoneList[i][j])
+                        places.push(zoneList[i][j])
+                    }
+                }
                 // console.log(places)
-                // setPlaces(places)
+                setPlaces(places)
+
+                const zonesArray = []
+                for (let i in places) {
+                    zonesArray.push(places[i].zone)
+                }
+                const uniqueZonesArray = [...new Set(zonesArray)]
+                console.log(uniqueZonesArray)
+                setZonesArray(uniqueZonesArray)
+
+
                 // let totalPeople = 0
                 // for (let i in places) {
                 //     totalPeople = totalPeople + places[i].total
