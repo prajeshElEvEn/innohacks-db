@@ -9,8 +9,12 @@ const Chart = () => {
     const [places, setPlaces] = useState([])
     const [zoneList, setZoneList] = useState([])
     const [noOfZones, setNoOfZones] = useState(0)
-    const [totalPeople, setTotalPeople] = useState(0)
-    const [peopleWithoutMask, setPeopleWithoutMask] = useState(0)
+    // const [totalPeople, setTotalPeople] = useState(0)
+    const [totalPeopleArray, setTotalPeopleArray] = useState([])
+    const [sumOfPeople, setSumOfPeople] = useState(0)
+    // const [peopleWithoutMask, setPeopleWithoutMask] = useState(0)
+    const [peopleWithoutMaskArray, setPeopleWithoutMaskArray] = useState([])
+    const [sumOfPeopleWithoutMask, setSumOfPeopleWithoutMask] = useState(0)
     const [zonesArray, setZonesArray] = useState([])
     // let zones = 0
     const peopleRef = ref(db, 'covizone-9c238-default-rtdb/name')
@@ -48,6 +52,31 @@ const Chart = () => {
                 console.log(uniqueZonesArray)
                 setZonesArray(uniqueZonesArray)
 
+                const totalPeopleArray = []
+                for (let i in uniqueZonesArray) {
+                    let sumOfPeople = 0
+                    for (let j in places) {
+                        if (uniqueZonesArray[i] === places[j].zone) {
+                            sumOfPeople = sumOfPeople + places[j].total
+                        }
+                    }
+                    totalPeopleArray.push(sumOfPeople)
+                }
+                console.log(totalPeopleArray)
+                setTotalPeopleArray(totalPeopleArray)
+
+                const peopleWithoutMaskArray = []
+                for (let i in uniqueZonesArray) {
+                    let sumOfPeopleWithoutMask = 0
+                    for (let j in places) {
+                        if (uniqueZonesArray[i] === places[j].zone) {
+                            sumOfPeopleWithoutMask = sumOfPeopleWithoutMask + places[j].mask
+                        }
+                    }
+                    peopleWithoutMaskArray.push(sumOfPeopleWithoutMask)
+                }
+                console.log(peopleWithoutMaskArray)
+                setPeopleWithoutMaskArray(peopleWithoutMaskArray)
 
                 // let totalPeople = 0
                 // for (let i in places) {
