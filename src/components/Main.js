@@ -1,147 +1,207 @@
 import { ChevronRightIcon, EmailIcon } from '@chakra-ui/icons'
-import { Avatar, Box, Button, Heading, Slide, Tag, TagLabel, Text, useDisclosure } from '@chakra-ui/react'
-import React from 'react'
+import { Avatar, Box, Button, color, Heading, Image, Link, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Slide, Tag, TagLabel, Text, useDisclosure } from '@chakra-ui/react'
+import gsap from 'gsap'
+import React, { useEffect, useRef } from 'react'
 
 const Main = () => {
-    const { isOpen, onToggle } = useDisclosure()
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
+    const tl = useRef()
+    const headingBox = useRef()
+    const contentBox = useRef()
+    const logoImage = useRef()
+
+    useEffect(() => {
+        tl.current = gsap.timeline(
+            {
+                defaults: {
+                    duration: 0.6,
+                }
+            }
+        )
+            .fromTo
+            (
+                headingBox.current,
+                {
+                    opacity: 0,
+                    y: 100,
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                },
+            )
+            .fromTo(
+                contentBox.current,
+                {
+                    opacity: 0,
+                    y: 100,
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                }
+            )
+            .fromTo(
+                logoImage.current,
+                {
+                    y: 0
+                },
+                {
+                    y: -10,
+                    repeat: -1,
+                    yoyo: true,
+                }
+            )
+    }, [])
+
+
     return (
         <Box className='main'
             w={{ base: '100%', md: '96%', lg: '80%' }}
             // bg='gray.100'
-            m={{ base: '4rem auto', md: '10rem auto' }}
+            m={{ base: '4rem auto', md: '8rem auto' }}
             p={2}
 
         >
-            <Heading
-                as='h2'
-                size='4xl'
-                textAlign={'center'}
-                fontFamily='Poppins'
-                m={'1rem 0'}
-                // color='white'
-                bgClip='text'
-                bgGradient='linear(to-l, #FD6E6A, #FFC600)'
-            >
-                &lt;CoviZone&gt;
-            </Heading>
             <Box
-                m={'0.5rem auto'}
-                w={{ base: '100%', md: '96%', lg: '80%' }}
-                d={'flex'}
-                gap={'1rem'}
-                flexWrap={'wrap'}
-                justifyContent={'center'}
+                ref={headingBox}
             >
-                <Tag size='lg' colorScheme='red' borderRadius='full'>
-                    <Avatar
-                        src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png'
-                        bg={'pink'}
-                        size='xs'
-                        name='Python'
-                        ml={-1}
-                        mr={2}
-                    />
-                    <TagLabel>Python</TagLabel>
-                </Tag>
-                <Tag size='lg' colorScheme='red' borderRadius='full'>
-                    <Avatar
-                        src='https://th.bing.com/th/id/OIP.riAj889ZOePSATbx-bXnUQHaHa?pid=ImgDet&rs=1'
-                        size='xs'
-                        name='Firebase'
-                        ml={-1}
-                        mr={2}
-                    />
-                    <TagLabel>Firebase</TagLabel>
-                </Tag>
-                <Tag size='lg' colorScheme='red' borderRadius='full'>
-                    <Avatar
-                        src='https://th.bing.com/th/id/R.f81a6f373c244b1f70f4b7402b5ab372?rik=rbXh4ieLuKt%2bmA&riu=http%3a%2f%2flogos-download.com%2fwp-content%2fuploads%2f2016%2f09%2fReact_logo_logotype_emblem.png&ehk=QhGOkKcUKCU7FBQgHOajOiJqJBACUTD2Ni6LsfqzCEA%3d&risl=&pid=ImgRaw&r=0'
-                        bg={'pink'}
-                        size='xs'
-                        name='React'
-                        ml={-1}
-                        mr={2}
-                    />
-                    <TagLabel>React</TagLabel>
-                </Tag>
-                <Tag size='lg' colorScheme='red' borderRadius='full'>
-                    <Avatar
-                        src='https://www.chartjs.org/docs/latest/favicon.ico'
-                        size='xs'
-                        name='Chart.js'
-                        ml={-1}
-                        mr={2}
-                    />
-                    <TagLabel>Chart.js</TagLabel>
-                </Tag>
-                <Tag size='lg' colorScheme='red' borderRadius='full'>
-                    <Avatar
-                        src='https://img.stackshare.io/service/12421/rzylUjaf_400x400.jpg'
-                        size='xs'
-                        name='Chakra UI'
-                        ml={-1}
-                        mr={2}
-                    />
-                    <TagLabel>Chakra UI</TagLabel>
-                </Tag>
-            </Box>
-            <Heading as='h4' size='xl'
-                textAlign={'center'}
-                fontFamily='Poppins'
-                color='white'
-            >
-                HamckerBazz
-            </Heading>
-            <Text fontSize='lg'
-                textAlign={'center'}
-                fontFamily='Poppins'
-                color='white'
-                m={'1rem auto'}
-                w={{ base: '100%', md: '60%' }}
-            >
-                This project makes extensive use of Machine Learning to detect the people wandering without mask in order to spread awareness about the ongoing pandemic crisis. The project is in development and your suggestions to improve this project are always welcome.
-            </Text>
-            <Box
-                d='flex'
-                justifyContent='center'
-                p={'1rem'}
-            >
-                <Button onClick={onToggle}
+                <Heading
+                    as='h2'
+                    size='4xl'
+                    textAlign={'center'}
                     fontFamily='Poppins'
-                    fontWeight={'600'}
-                    size={'lg'}
-                    borderRadius='1rem'
-                    color={'#1967d2'}
-                    p={'1rem 2rem'}
-                    rightIcon={<ChevronRightIcon />}
-                    _active={{
-                        transform: 'scale(0.95)'
-                    }}
+                    m={'1rem 0'}
+                    // color='white'
+                    bgClip='text'
+                    bgGradient='linear(to-br, #ffae00, #f12711)'
                 >
-                    Quote Us
-                </Button>
-                <Slide direction='bottom' in={isOpen} style={{ zIndex: 10 }}>
-                    <Box
-                        p='2rem'
-                        color='#1967d2'
-                        fontFamily={'Poppins'}
-                        mt='4'
-                        bg='gray.100'
-                        // rounded='lg'
-                        shadow='md'
-                        d='flex'
-                        flexDirection={{ base: 'column', md: 'row' }}
-                        justifyContent={'center'}
-                        alignItems={'center'}
-                        gap={'2'}
+                    &lt;CoviZone&gt;
+                </Heading>
+                <Text fontSize='3xl'
+                    textAlign={'center'}
+                    fontFamily='Poppins'
+                    color='#4a93f8'
+                    m={'1rem auto'}
+                    fontWeight='500'
+                    w={{ base: '100%', md: '60%' }}
+                    bg='gray.100'
+                    w='fit-content'
+                    p={'0.6rem 1rem'}
+                    // borderRadius='5px'
+                    rounded='full'
+                >
+                    by
+                </Text>
+                <Box
+                    d='flex'
+                    justifyContent='center'
+                    alignItems='center'
+                    transform={{ base: 'translateY(-1rem)', md: 'translateY(-2rem)' }}
+                    flexDirection={{ base: 'column', md: 'row' }}
+                // bg={'gray.500'}
+                >
+                    <Image
+                        ref={logoImage}
+                        // m={'1rem auto'}
+                        borderRadius='full'
+                        // border={'1px solid white'}
+                        boxSize='150px'
+                        src='https://i.ibb.co/tBvR4Yv/logo.png'
+                        alt='HamckerBazz'
+                    // bg={'gray.100'}
+                    />
+                    <Heading as='h4' size='xl'
+                        // textAlign={'center'}
+                        fontFamily='Poppins'
+                        color='white'
+                    // bg={'gray.100'}
                     >
-
-                        Do you think this project is lit🔥? Or you have a suggestion to improve this project😍? You can write to us at <a href='mailto:hamckerbaaz@gmail.com' target='_blank' rel='noopener noreferrer'>
-                            {<EmailIcon />} hamckerbaaz@gmail.com</a>
-                    </Box>
-                </Slide>
+                        HamckerBazz
+                    </Heading>
+                </Box>
             </Box>
-        </Box>
+            <Box
+                ref={contentBox}
+                w={{ base: '100%', md: '60%' }}
+                m={'auto'}
+                // bg='gray.500'
+                p={{ base: '1rem', md: '2rem' }}
+                borderRadius={{ base: '0.5rem', md: '2rem' }}
+                // backdropFilter='blur(16px) saturate(180%)'
+                backdropBlur={'blur(24px) saturate(180%)'}
+                bg='rgba(17, 25, 40, 0.75)'
+                border='1px solid rgba(255, 255, 255, 0.125)'
+            >
+                <Text fontSize='lg'
+                    textAlign={'center'}
+                    fontFamily='Poppins'
+                    color='white'
+                    m={'1rem auto'}
+                // w={{ base: '100%', md: '60%' }}
+                >
+                    This project makes extensive use of Machine Learning to detect the people wandering without mask in order to spread awareness about the ongoing pandemic crisis. The project is in development and your suggestions to improve this project are always welcome.
+                </Text>
+                <Box
+                    d='flex'
+                    justifyContent='center'
+                    p={'1rem'}
+                >
+                    <Button onClick={onOpen}
+                        fontFamily='Poppins'
+                        fontWeight={'600'}
+                        fontSize={'1.5rem'}
+                        borderRadius='0.5rem'
+                        color={'white'}
+                        // bgClip='text'
+                        bgGradient='linear(to-br, #ffae00, #f12711)'
+                        p={'1.8rem 2.5rem'}
+                        // rightIcon={<ChevronRightIcon />}
+                        _active={{
+                            transform: 'scale(0.95)'
+                        }}
+                        _hover={{
+                            transform: 'translateY(-0.5rem)',
+                        }}
+                    >
+                        Quote Us
+                    </Button>
+                    <Modal isOpen={isOpen} onClose={onClose}
+                        m={'auto'}
+                    >
+                        <ModalOverlay />
+                        <ModalContent>
+                            <ModalHeader
+                                fontFamily='Poppins'
+                            >Quote Us</ModalHeader>
+                            <ModalCloseButton />
+                            <ModalBody
+                                fontFamily={'Poppins'}
+                            >
+                                Do you think this project is lit🔥? Or do you any suggestions to improve this model😍? Write to us at
+                                &nbsp;
+                                <Link color='blue.500' href='mailto:nqu7069@gmail.com'>
+                                    nqu7069@gmail.com
+                                </Link>
+                                .
+                            </ModalBody>
+                            <ModalFooter>
+                                <Link color='blue.500' href='mailto:nqu7069@gmail.com'>
+                                    <Button variant='ghost'
+                                        color={'blue.500'}
+                                        fontFamily='Poppins'
+                                        fontWeight={'400'}
+                                    >Write e-Mail</Button>
+                                </Link>
+
+                            </ModalFooter>
+                        </ModalContent>
+                    </Modal>
+                </Box>
+            </Box>
+        </Box >
     )
 }
 

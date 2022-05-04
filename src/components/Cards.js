@@ -131,13 +131,14 @@ const Cards = () => {
                     </Heading>
                     <Heading as='h2' size='2xl'
                         fontFamily={'Poppins'}
+                        color='hsl(34, 97%, 64%)'
                     >
                         {totalPeople}
                     </Heading>
                     <Text
                         fontFamily={'Poppins'}
                     >
-                        The number represents the total number of individuals scanned by the algorithm.
+                        Total number of individuals scanned by the algorithm.
                     </Text>
                 </Box>
                 <Box
@@ -166,13 +167,14 @@ const Cards = () => {
                     </Heading>
                     <Heading as='h2' size='2xl'
                         fontFamily={'Poppins'}
+                        color='hsl(180, 62%, 55%)'
                     >
                         {noOfZones}
                     </Heading>
                     <Text
                         fontFamily={'Poppins'}
                     >
-                        This tell us about the number of zones the algorithm is collecting data from.
+                        Total number of zones the algorithm is collecting data from.
                     </Text>
                 </Box>
             </Box>
@@ -211,13 +213,14 @@ const Cards = () => {
                     </Heading>
                     <Heading as='h2' size='2xl'
                         fontFamily={'Poppins'}
+                        color='hsl(212, 86%, 64%)'
                     >
                         {peopleWithoutMask}
                     </Heading>
                     <Text
                         fontFamily={'Poppins'}
                     >
-                        Number of people identified by the model that are not wearing mask.
+                        Total number of people identified by the model that are not wearing mask.
                     </Text>
                 </Box>
                 <Box
@@ -247,6 +250,7 @@ const Cards = () => {
                     </Heading>
                     <Heading as='h2' size='2xl'
                         fontFamily={'Poppins'}
+                        color='hsl(0, 78%, 62%)'
                     >
                         {calcPercentage()}%
                     </Heading>

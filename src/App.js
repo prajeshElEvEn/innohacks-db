@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Main from './components/Main';
 import Cards from './components/Cards';
 import Chart from './components/Chart';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Main />
       <Cards />
       <Chart />
+      <Footer />
     </div>
   );
 }

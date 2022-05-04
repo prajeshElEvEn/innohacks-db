@@ -24,26 +24,18 @@ const Chart = () => {
     useEffect(() => {
         const getPlaces = async () => {
             await onValue(placesRef, (snapshot) => {
-                // console.log(snapshot.val())
                 const zones = snapshot.val()
-                // console.log(zones)
                 const zoneList = []
                 for (let id in zones) {
                     zoneList.push(zones[id].data)
                 }
-                setNoOfZones(zoneList.length)
-                // console.log(zoneList.length)
-                // console.log(zoneList)
                 setZoneList(zoneList)
                 const places = []
-                // const zone = []
                 for (let i in zoneList) {
                     for (let j in zoneList[i]) {
-                        // console.log(zoneList[i][j])
                         places.push(zoneList[i][j])
                     }
                 }
-                // console.log(places)
                 setPlaces(places)
 
                 const zonesArray = []
@@ -51,34 +43,31 @@ const Chart = () => {
                     zonesArray.push(places[i].zone)
                 }
                 const uniqueZonesArray = [...new Set(zonesArray)]
-                // console.log(uniqueZonesArray)
                 setUniqueZonesArray(uniqueZonesArray)
                 setZonesArray(uniqueZonesArray)
 
                 const totalPeopleArray = []
                 for (let i in uniqueZonesArray) {
-                    let sumOfPeople = 0
+                    let sumOfPeople = []
                     for (let j in places) {
                         if (uniqueZonesArray[i] === places[j].zone) {
-                            sumOfPeople = sumOfPeople + places[j].total
+                            sumOfPeople.push(places[j].total)
                         }
                     }
-                    totalPeopleArray.push(sumOfPeople)
+                    totalPeopleArray.push(sumOfPeople.pop())
                 }
-                // console.log(totalPeopleArray)
                 setTotalPeopleArray(totalPeopleArray)
 
                 const peopleWithoutMaskArray = []
                 for (let i in uniqueZonesArray) {
-                    let sumOfPeopleWithoutMask = 0
+                    let sumOfPeopleWithoutMask = []
                     for (let j in places) {
                         if (uniqueZonesArray[i] === places[j].zone) {
-                            sumOfPeopleWithoutMask = sumOfPeopleWithoutMask + places[j].mask
+                            sumOfPeopleWithoutMask.push(places[j].mask)
                         }
                     }
-                    peopleWithoutMaskArray.push(sumOfPeopleWithoutMask)
+                    peopleWithoutMaskArray.push(sumOfPeopleWithoutMask.pop())
                 }
-                // console.log(peopleWithoutMaskArray)
                 setPeopleWithoutMaskArray(peopleWithoutMaskArray)
 
                 // let totalPeople = 0
@@ -150,11 +139,11 @@ const Chart = () => {
                                     datasets: [{
                                         label: 'Total People',
                                         data: totalPeopleArray,
-                                        backgroundColor: '#1967d2',
+                                        backgroundColor: 'hsl(34, 97%, 64%)',
                                     }, {
                                         label: 'People Without Mask',
                                         data: peopleWithoutMaskArray,
-                                        backgroundColor: '#ff6b6b',
+                                        backgroundColor: 'hsl(0, 78%, 62%)',
                                     }]
                                 }}
                             />
@@ -166,11 +155,11 @@ const Chart = () => {
                                     datasets: [{
                                         label: 'Total People',
                                         data: totalPeopleArray,
-                                        backgroundColor: '#1967d2',
+                                        backgroundColor: 'hsl(34, 97%, 64%)',
                                     }, {
                                         label: 'People Without Mask',
                                         data: peopleWithoutMaskArray,
-                                        backgroundColor: '#ff6b6b',
+                                        backgroundColor: 'hsl(0, 78%, 62%)',
                                     }]
                                 }}
                             // options={ }

@@ -36,15 +36,37 @@ const Navbar = () => {
                     Team
                 </MenuButton>
                 <MenuList>
-                    <MenuItem>
-                        {/* <AtSignIcon /> */}
-                        <a href='https://github.com/divyansh-nishad' target='_blank' rel='noopener noreferrer'>
-                            @divyansh-nishad
+                    <MenuItem
+                        fontFamily={'Poppins'}
+                        fontSize={'sm'}
+                    >
+                        <a href='https://github.com/Ayushsingh07' target='_blank' rel='noopener noreferrer'>
+                            @Ayush
                         </a>
                     </MenuItem>
-                    <MenuItem>
-                        <a href='https://github.com/Ayushsingh07' target='_blank' rel='noopener noreferrer'>
-                            @Ayushsingh07
+                    <MenuItem
+                        fontFamily={'Poppins'}
+                        fontSize={'sm'}
+                    >
+                        {/* <AtSignIcon /> */}
+                        <a href='https://github.com/prajeshElEvEn' target='_blank' rel='noopener noreferrer'>
+                            @Prajesh
+                        </a>
+                    </MenuItem>
+                    <MenuItem
+                        fontFamily={'Poppins'}
+                        fontSize={'sm'}
+                    >
+                        <a href='https://github.com/divyansh-nishad' target='_blank' rel='noopener noreferrer'>
+                            @Divyansh
+                        </a>
+                    </MenuItem>
+                    <MenuItem
+                        fontFamily={'Poppins'}
+                        fontSize={'sm'}
+                    >
+                        <a href='https://github.com/shivamshi' target='_blank' rel='noopener noreferrer'>
+                            @Shivam
                         </a>
                     </MenuItem>
                 </MenuList>
