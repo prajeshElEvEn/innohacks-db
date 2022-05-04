@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/innohacks-db/static/css/main.c3d9a1d6.css",
-    "main.js": "/innohacks-db/static/js/main.bdac7d15.js",
+    "main.js": "/innohacks-db/static/js/main.345a70f4.js",
     "index.html": "/innohacks-db/index.html",
     "main.c3d9a1d6.css.map": "/innohacks-db/static/css/main.c3d9a1d6.css.map",
-    "main.bdac7d15.js.map": "/innohacks-db/static/js/main.bdac7d15.js.map"
+    "main.345a70f4.js.map": "/innohacks-db/static/js/main.345a70f4.js.map"
   },
   "entrypoints": [
     "static/css/main.c3d9a1d6.css",
-    "static/js/main.bdac7d15.js"
+    "static/js/main.345a70f4.js"
   ]
 }
