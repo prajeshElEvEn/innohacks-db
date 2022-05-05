@@ -77,6 +77,7 @@ const Main = () => {
                     // color='white'
                     bgClip='text'
                     bgGradient='linear(to-br, #ffae00, #f12711)'
+                    cursor={'context-menu'}
                 >
                     &lt;CoviZone&gt;
                 </Heading>
@@ -92,6 +93,7 @@ const Main = () => {
                     p={'0.6rem 1rem'}
                     // borderRadius='5px'
                     rounded='full'
+                    cursor={'context-menu'}
                 >
                     by
                 </Text>
@@ -117,7 +119,8 @@ const Main = () => {
                         // textAlign={'center'}
                         fontFamily='Poppins'
                         color='white'
-                    // bg={'gray.100'}
+                        // bg={'gray.100'}
+                        cursor={'context-menu'}
                     >
                         HamckerBazz
                     </Heading>
@@ -140,7 +143,8 @@ const Main = () => {
                     fontFamily='Poppins'
                     color='white'
                     m={'1rem auto'}
-                // w={{ base: '100%', md: '60%' }}
+                    // w={{ base: '100%', md: '60%' }}
+                    cursor={'context-menu'}
                 >
                     This project makes extensive use of Machine Learning to detect the people wandering without mask in order to spread awareness about the ongoing pandemic crisis. The project is in development and your suggestions to improve this project are always welcome.
                 </Text>

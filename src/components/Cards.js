@@ -69,8 +69,12 @@ const Cards = () => {
     }, [])
 
     const calcPercentage = () => {
-        const percentage = (peopleWithoutMask / totalPeople) * 100
-        return percentage.toFixed(2)
+        if (peopleWithoutMask) {
+            const percentage = (peopleWithoutMask / totalPeople) * 100
+            return percentage.toFixed(2)
+        } else {
+            return 0
+        }
     }
 
     return (
@@ -81,12 +85,14 @@ const Cards = () => {
             p={{ base: '6rem 0.2rem', md: '6rem 2rem' }}
             bg='white'
             borderRadius={{ base: '2rem', md: '4rem 4rem' }}
+            cursor={'context-menu'}
         >
             <Heading as='h2' size='xl'
                 textAlign={'center'}
                 // textDecoration='underline'
                 fontFamily={'Poppins'}
                 m={'0 0 2rem 0'}
+                cursor={'context-menu'}
             >
                 Zonal Statistics
                 <UpDownIcon
@@ -211,12 +217,18 @@ const Cards = () => {
                     >
                         People without Mask
                     </Heading>
-                    <Heading as='h2' size='2xl'
+                    {/* <Heading as='h2' size='2xl'
                         fontFamily={'Poppins'}
                         color='hsl(212, 86%, 64%)'
                     >
                         {peopleWithoutMask}
-                    </Heading>
+                    </Heading> */}
+                    <Text
+                        fontFamily={'Poppins'}
+                        color='gray.400'
+                    >
+                        Under development
+                    </Text>
                     <Text
                         fontFamily={'Poppins'}
                     >
@@ -248,12 +260,18 @@ const Cards = () => {
                     >
                         Percentage of People without Mask
                     </Heading>
-                    <Heading as='h2' size='2xl'
+                    {/* <Heading as='h2' size='2xl'
                         fontFamily={'Poppins'}
                         color='hsl(0, 78%, 62%)'
                     >
                         {calcPercentage()}%
-                    </Heading>
+                    </Heading> */}
+                    <Text
+                        fontFamily={'Poppins'}
+                        color='gray.400'
+                    >
+                        Under development
+                    </Text>
                     <Text
                         fontFamily={'Poppins'}
                     >

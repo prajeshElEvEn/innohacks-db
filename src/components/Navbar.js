@@ -22,12 +22,16 @@ const Navbar = () => {
                 // variant='outline'
                 />
                 <MenuList>
-                    <MenuItem icon={<ExternalLinkIcon />}>
-                        View Live Feed
+                    <MenuItem icon={<ExternalLinkIcon />}
+                        fontFamily='Poppins'
+                        fontSize={'sm'}
+                        color='gray.400'
+                    >
+                        View Live Feed - Under development
                     </MenuItem>
-                    <MenuItem icon={<ExternalLinkIcon />}>
+                    {/* <MenuItem icon={<ExternalLinkIcon />}>
                         Know More
-                    </MenuItem>
+                    </MenuItem> */}
                 </MenuList>
             </Menu>
             {/* <ButtonGroup gap='2'> */}

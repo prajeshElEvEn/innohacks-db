@@ -1,5 +1,5 @@
 import { EditIcon } from '@chakra-ui/icons'
-import { Box, Heading, layout, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
+import { Box, Heading, layout, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from '@chakra-ui/react'
 import { onValue, ref } from 'firebase/database'
 import React, { useEffect, useState } from 'react'
 import { Bar, Line } from 'react-chartjs-2'
@@ -104,6 +104,7 @@ const Chart = () => {
                 color='#fff'
                 m={'2rem 0'}
                 p={'1rem 0'}
+                cursor={'context-menu'}
             >
                 Graph
                 <EditIcon
@@ -133,37 +134,71 @@ const Chart = () => {
                     </TabList>
                     <TabPanels>
                         <TabPanel>
-                            <Bar
-                                data={{
-                                    labels: uniqueZonesArray,
-                                    datasets: [{
-                                        label: 'Total People',
-                                        data: totalPeopleArray,
-                                        backgroundColor: 'hsl(34, 97%, 64%)',
-                                    }, {
-                                        label: 'People Without Mask',
-                                        data: peopleWithoutMaskArray,
-                                        backgroundColor: 'hsl(0, 78%, 62%)',
-                                    }]
-                                }}
-                            />
+                            {totalPeopleArray.length > 0 ? (
+                                <>
+                                    <Bar
+                                        data={{
+                                            labels: uniqueZonesArray,
+                                            datasets: [{
+                                                label: 'Total People',
+                                                data: totalPeopleArray,
+                                                backgroundColor: 'hsl(34, 97%, 64%)',
+                                            },
+                                                // {
+                                                //     label: 'People Without Mask',
+                                                //     data: peopleWithoutMaskArray,
+                                                //     backgroundColor: 'hsl(0, 78%, 62%)',
+                                                // }
+                                            ]
+                                        }}
+                                    />
+                                </>
+                            ) : (
+                                <Text
+                                    textAlign={'center'}
+                                    fontFamily={'Poppins'}
+                                    m={'1rem 0'}
+                                    p={'4rem 0'}
+                                    bg='gray.100'
+                                    borderRadius={'1rem'}
+                                    cursor={'context-menu'}
+                                >
+                                    No data to display.
+                                </Text>
+                            )}
                         </TabPanel>
                         <TabPanel>
-                            <Line
-                                data={{
-                                    labels: uniqueZonesArray,
-                                    datasets: [{
-                                        label: 'Total People',
-                                        data: totalPeopleArray,
-                                        backgroundColor: 'hsl(34, 97%, 64%)',
-                                    }, {
-                                        label: 'People Without Mask',
-                                        data: peopleWithoutMaskArray,
-                                        backgroundColor: 'hsl(0, 78%, 62%)',
-                                    }]
-                                }}
-                            // options={ }
-                            />
+                            {totalPeopleArray.length > 0 ? (
+                                <Line
+                                    data={{
+                                        labels: uniqueZonesArray,
+                                        datasets: [{
+                                            label: 'Total People',
+                                            data: totalPeopleArray,
+                                            backgroundColor: 'hsl(34, 97%, 64%)',
+                                        },
+                                            // {
+                                            //     label: 'People Without Mask',
+                                            //     data: peopleWithoutMaskArray,
+                                            //     backgroundColor: 'hsl(0, 78%, 62%)',
+                                            // }
+                                        ]
+                                    }}
+                                // options={ }
+                                />
+                            ) : (
+                                <Text
+                                    textAlign={'center'}
+                                    fontFamily={'Poppins'}
+                                    m={'1rem 0'}
+                                    p={'4rem 0'}
+                                    bg='gray.100'
+                                    borderRadius={'1rem'}
+                                    cursor={'context-menu'}
+                                >
+                                    No data to display.
+                                </Text>
+                            )}
                         </TabPanel>
                     </TabPanels>
                 </Tabs>
