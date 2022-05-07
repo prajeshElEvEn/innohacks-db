@@ -1,5 +1,5 @@
 import { UpDownIcon } from '@chakra-ui/icons'
-import { Box, Divider, Heading, Text } from '@chakra-ui/react'
+import { Box, Heading, Text } from '@chakra-ui/react'
 import { onValue, ref } from 'firebase/database'
 import React, { useEffect, useState } from 'react'
 import db from '../config/config'
@@ -18,42 +18,31 @@ const Cards = () => {
     useEffect(() => {
         const getPlaces = async () => {
             await onValue(placesRef, (snapshot) => {
-                // console.log(snapshot.val())
                 const zones = snapshot.val()
-                // console.log(zones)
                 const zoneList = []
                 for (let id in zones) {
                     zoneList.push(zones[id].data)
                 }
                 setNoOfZones(zoneList.length)
-                // console.log(zoneList.length)
-                // console.log(zoneList)
                 setZoneList(zoneList)
                 const places = []
-                // const zone = []
                 for (let i in zoneList) {
                     for (let j in zoneList[i]) {
-                        // console.log(zoneList[i][j])
                         places.push(zoneList[i][j])
                     }
                 }
-                // console.log(places)
                 setPlaces(places)
 
                 let totalPeople = 0
                 for (let i in places) {
                     totalPeople = totalPeople + places[i].total
-                    // console.log(totalPeople)
                 }
-                // console.log(totalPeople)
                 setTotalPeople(totalPeople)
 
                 let peopleWithoutMask = 0
                 for (let i in places) {
                     peopleWithoutMask = peopleWithoutMask + places[i].mask
-                    // console.log(peopleWithoutMask)
                 }
-                // console.log(peopleWithoutMask)
                 setPeopleWithoutMask(peopleWithoutMask)
 
                 let peopleNotFollowingSocialDistancing = 0
@@ -61,7 +50,6 @@ const Cards = () => {
                     peopleNotFollowingSocialDistancing = peopleNotFollowingSocialDistancing + places[i].socialD
 
                 }
-                // console.log(peopleNotFollowingSocialDistancing)
                 setPeopleNotFollowingSocialDistancing(peopleNotFollowingSocialDistancing)
             })
         }
@@ -69,7 +57,6 @@ const Cards = () => {
         const getPeople = async () => {
             await onValue(peopleRef, (snapshot) => {
                 const data = snapshot.val()
-                // console.log(data)
                 setPeople(data)
             })
         }
@@ -101,7 +88,6 @@ const Cards = () => {
     return (
         <Box
             w={{ base: '100%', md: '96%', lg: '80%' }}
-            // h={'20rem'}
             m={'auto'}
             p={{ base: '6rem 0.2rem', md: '6rem 2rem' }}
             bg='white'
@@ -110,7 +96,6 @@ const Cards = () => {
         >
             <Heading as='h2' size='xl'
                 textAlign={'center'}
-                // textDecoration='underline'
                 fontFamily={'Poppins'}
                 m={'0 0 2rem 0'}
                 cursor={'context-menu'}
@@ -124,14 +109,12 @@ const Cards = () => {
                     }}
                 />
             </Heading>
-            {/* <Divider /> */}
             <Box
                 d={'flex'}
                 p={{ base: '3rem 1rem 0 1rem', md: '3rem 2rem 0 2rem' }}
                 justifyContent={'space-between'}
                 gap={'3rem'}
                 flexDirection={{ base: 'column', md: 'row' }}
-            // bg='gray.200'
             >
                 <Box
                     w={{ base: '100%', md: '48%' }}
@@ -175,7 +158,6 @@ const Cards = () => {
                     flexDirection={'column'}
                     justifyContent={'center'}
                     h={'20rem'}
-                    // bg='gray.200'
                     bg='white'
                     border='1px solid #e0e0e0'
                     borderTop='5px solid hsl(180, 62%, 55%)'
@@ -207,7 +189,6 @@ const Cards = () => {
             </Box>
             <Box
                 d={'flex'}
-                // bg='gray.200'
                 p={{ base: '3rem 1rem 0 1rem', md: '3rem 2rem 0 2rem' }}
                 justifyContent={'space-between'}
                 gap={'3rem'}
@@ -220,7 +201,6 @@ const Cards = () => {
                     flexDirection={'column'}
                     justifyContent={'center'}
                     h={'20rem'}
-                    // bg='gray.200'
                     bg='white'
                     border='1px solid #e0e0e0'
                     borderTop='5px solid hsl(212, 86%, 64%)'
@@ -229,7 +209,6 @@ const Cards = () => {
                     boxShadow={'0 0.5rem 1rem rgba(0, 0, 0, 0.15)'}
                     transition={'all 0.2s ease-in-out'}
                     _hover={{
-                        // bg: 'hsl(212, 86%, 64%)',
                         transform: 'scale(1.02)'
                     }}
                 >
@@ -263,7 +242,6 @@ const Cards = () => {
                     flexDirection={'column'}
                     justifyContent={'center'}
                     h={'20rem'}
-                    // bg='gray.200'
                     bg='white'
                     border='1px solid #e0e0e0'
                     borderTop='5px solid hsl(0, 78%, 62%)'
@@ -272,7 +250,6 @@ const Cards = () => {
                     boxShadow={'0 0.5rem 1rem rgba(0, 0, 0, 0.15)'}
                     transition={'all 0.2s ease-in-out'}
                     _hover={{
-                        // bg: 'hsl(0, 78%, 62%)',
                         transform: 'scale(1.02)'
                     }}
                 >
@@ -302,7 +279,6 @@ const Cards = () => {
             </Box>
             <Box
                 d={'flex'}
-                // bg='gray.200'
                 p={{ base: '3rem 1rem 0 1rem', md: '3rem 2rem 0 2rem' }}
                 justifyContent={'space-between'}
                 gap={'3rem'}
@@ -315,7 +291,6 @@ const Cards = () => {
                     flexDirection={'column'}
                     justifyContent={'center'}
                     h={'20rem'}
-                    // bg='gray.200'
                     bg='white'
                     border='1px solid #e0e0e0'
                     borderTop='5px solid #8e00b9'
@@ -324,7 +299,6 @@ const Cards = () => {
                     boxShadow={'0 0.5rem 1rem rgba(0, 0, 0, 0.15)'}
                     transition={'all 0.2s ease-in-out'}
                     _hover={{
-                        // bg: '#8e00b9',
                         transform: 'scale(1.02)'
                     }}
                 >
@@ -358,7 +332,6 @@ const Cards = () => {
                     flexDirection={'column'}
                     justifyContent={'center'}
                     h={'20rem'}
-                    // bg='gray.200'
                     bg='white'
                     border='1px solid #e0e0e0'
                     borderTop='5px solid #3b7d00'
@@ -367,7 +340,6 @@ const Cards = () => {
                     boxShadow={'0 0.5rem 1rem rgba(0, 0, 0, 0.15)'}
                     transition={'all 0.2s ease-in-out'}
                     _hover={{
-                        // bg: '#3b7d00',
                         transform: 'scale(1.02)'
                     }}
                 >

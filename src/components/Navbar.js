@@ -1,5 +1,5 @@
-import { Box, Button, ButtonGroup, IconButton, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
-import { ExternalLinkIcon, RepeatIcon, AddIcon, EditIcon, HamburgerIcon, ChevronDownIcon, AtSignIcon } from '@chakra-ui/icons'
+import { Box, Button, IconButton, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
+import { ExternalLinkIcon, HamburgerIcon, ChevronDownIcon } from '@chakra-ui/icons'
 import React from 'react'
 
 const Navbar = () => {
@@ -11,15 +11,12 @@ const Navbar = () => {
             alignItems="center"
             justifyContent="space-between"
             w={{ base: '100%', md: '96%', lg: '80%' }}
-        // bg="gray.100"
         >
             <Menu>
                 <MenuButton
                     as={IconButton}
                     aria-label='Options'
                     icon={<HamburgerIcon />}
-                // colorScheme='white'
-                // variant='outline'
                 />
                 <MenuList>
                     <MenuItem icon={<ExternalLinkIcon />}
@@ -52,7 +49,6 @@ const Navbar = () => {
                         fontFamily={'Poppins'}
                         fontSize={'sm'}
                     >
-                        {/* <AtSignIcon /> */}
                         <a href='https://github.com/prajeshElEvEn' target='_blank' rel='noopener noreferrer'>
                             @Prajesh
                         </a>

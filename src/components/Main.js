@@ -1,5 +1,4 @@
-import { ChevronRightIcon, EmailIcon } from '@chakra-ui/icons'
-import { Avatar, Box, Button, color, Heading, Image, Link, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Slide, Tag, TagLabel, Text, useDisclosure } from '@chakra-ui/react'
+import { Box, Button, Heading, Image, Link, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure } from '@chakra-ui/react'
 import gsap from 'gsap'
 import React, { useEffect, useRef } from 'react'
 
@@ -60,7 +59,6 @@ const Main = () => {
     return (
         <Box className='main'
             w={{ base: '100%', md: '96%', lg: '80%' }}
-            // bg='gray.100'
             m={{ base: '4rem auto', md: '8rem auto' }}
             p={2}
 
@@ -74,7 +72,6 @@ const Main = () => {
                     textAlign={'center'}
                     fontFamily='Poppins'
                     m={'1rem 0'}
-                    // color='white'
                     bgClip='text'
                     bgGradient='linear(to-br, #ffae00, #f12711)'
                     cursor={'context-menu'}
@@ -91,7 +88,6 @@ const Main = () => {
                     bg='gray.100'
                     w='fit-content'
                     p={'0.6rem 1rem'}
-                    // borderRadius='5px'
                     rounded='full'
                     cursor={'context-menu'}
                 >
@@ -103,23 +99,17 @@ const Main = () => {
                     alignItems='center'
                     transform={{ base: 'translateY(-1rem)', md: 'translateY(-2rem)' }}
                     flexDirection={{ base: 'column', md: 'row' }}
-                // bg={'gray.500'}
                 >
                     <Image
                         ref={logoImage}
-                        // m={'1rem auto'}
                         borderRadius='full'
-                        // border={'1px solid white'}
                         boxSize='150px'
                         src='https://i.ibb.co/tBvR4Yv/logo.png'
                         alt='HamckerBazz'
-                    // bg={'gray.100'}
                     />
                     <Heading as='h4' size='xl'
-                        // textAlign={'center'}
                         fontFamily='Poppins'
                         color='white'
-                        // bg={'gray.100'}
                         cursor={'context-menu'}
                     >
                         HamckerBazz
@@ -130,10 +120,8 @@ const Main = () => {
                 ref={contentBox}
                 w={{ base: '100%', md: '60%' }}
                 m={'auto'}
-                // bg='gray.500'
                 p={{ base: '1rem', md: '2rem' }}
                 borderRadius={{ base: '0.5rem', md: '2rem' }}
-                // backdropFilter='blur(16px) saturate(180%)'
                 backdropBlur={'blur(24px) saturate(180%)'}
                 bg='rgba(17, 25, 40, 0.75)'
                 border='1px solid rgba(255, 255, 255, 0.125)'
@@ -143,7 +131,6 @@ const Main = () => {
                     fontFamily='Poppins'
                     color='white'
                     m={'1rem auto'}
-                    // w={{ base: '100%', md: '60%' }}
                     cursor={'context-menu'}
                 >
                     This project makes extensive use of Machine Learning to detect the people wandering without mask in order to spread awareness about the ongoing pandemic crisis. The project is in development and your suggestions to improve this project are always welcome.
@@ -159,10 +146,8 @@ const Main = () => {
                         fontSize={'1.5rem'}
                         borderRadius='0.5rem'
                         color={'white'}
-                        // bgClip='text'
                         bgGradient='linear(to-br, #ffae00, #f12711)'
                         p={'1.8rem 2.5rem'}
-                        // rightIcon={<ChevronRightIcon />}
                         _active={{
                             transform: 'scale(0.95)'
                         }}
@@ -199,7 +184,6 @@ const Main = () => {
                                         fontWeight={'400'}
                                     >Write e-Mail</Button>
                                 </Link>
-
                             </ModalFooter>
                         </ModalContent>
                     </Modal>
