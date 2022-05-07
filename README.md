@@ -8,6 +8,7 @@ This project makes extensive use of Machine Learning to detect the people wander
 
 - [React](https://reactjs.org/)
 - [Chakra UI](https://chakra-ui.com/)
+- [GSAP](https://greensock.com/gsap/)
 - [Chart.js](https://www.chartjs.org/)
 - [Python](https://github.com/Ayushsingh07/covid_spread01)
   - The scripts used are to be found [here](https://github.com/Ayushsingh07/covid_spread01)
