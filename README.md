@@ -4,6 +4,12 @@ This project makes extensive use of Machine Learning to detect the people wander
 
 - This project was built as a submission for [Innohacks Summit 2022](https://www.innohacks.live/).
 
+## Screenshots
+
+![Home](./assets/one.png?raw=true "Home Page")
+![Zonal Statistics](./assets/two.png?raw=true "Zonal Statistics")
+![Graph](./assets/three.png?raw=true "Graph")
+
 ## Resources Used
 
 - [React](https://reactjs.org/)
