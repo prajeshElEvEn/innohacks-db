@@ -16,6 +16,10 @@ const Chart = () => {
     // const [peopleWithoutMask, setPeopleWithoutMask] = useState(0)
     const [peopleWithoutMaskArray, setPeopleWithoutMaskArray] = useState([])
     const [sumOfPeopleWithoutMask, setSumOfPeopleWithoutMask] = useState(0)
+
+    const [peopleSocialDistancing, setPeopleSocialDistancing] = useState([])
+    const [sumOfSocialDistancing, setSumOfSocialDistancing] = useState(0)
+
     const [zonesArray, setZonesArray] = useState([])
     const [uniqueZonesArray, setUniqueZonesArray] = useState([])
     // let zones = 0
@@ -69,6 +73,19 @@ const Chart = () => {
                     peopleWithoutMaskArray.push(sumOfPeopleWithoutMask.pop())
                 }
                 setPeopleWithoutMaskArray(peopleWithoutMaskArray)
+
+                const peopleSocialDistancingArray = []
+                for (let i in uniqueZonesArray) {
+                    let sumOfSocialDistancing = []
+                    for (let j in places) {
+                        if (uniqueZonesArray[i] === places[j].zone) {
+                            sumOfSocialDistancing.push(places[j].socialD)
+                        }
+                    }
+                    peopleSocialDistancingArray.push(sumOfSocialDistancing.pop())
+                }
+                console.log(peopleSocialDistancingArray)
+                setPeopleSocialDistancing(peopleSocialDistancingArray)
 
                 // let totalPeople = 0
                 // for (let i in places) {
@@ -144,11 +161,16 @@ const Chart = () => {
                                                 data: totalPeopleArray,
                                                 backgroundColor: 'hsl(34, 97%, 64%)',
                                             },
-                                                // {
-                                                //     label: 'People Without Mask',
-                                                //     data: peopleWithoutMaskArray,
-                                                //     backgroundColor: 'hsl(0, 78%, 62%)',
-                                                // }
+                                            {
+                                                label: 'People Without Mask',
+                                                data: peopleWithoutMaskArray,
+                                                backgroundColor: 'hsl(0, 78%, 62%)',
+                                            },
+                                            {
+                                                label: 'People not following Social Distancing',
+                                                data: peopleSocialDistancing,
+                                                backgroundColor: '#8e00b9',
+                                            }
                                             ]
                                         }}
                                     />
@@ -177,11 +199,16 @@ const Chart = () => {
                                             data: totalPeopleArray,
                                             backgroundColor: 'hsl(34, 97%, 64%)',
                                         },
-                                            // {
-                                            //     label: 'People Without Mask',
-                                            //     data: peopleWithoutMaskArray,
-                                            //     backgroundColor: 'hsl(0, 78%, 62%)',
-                                            // }
+                                        {
+                                            label: 'People Without Mask',
+                                            data: peopleWithoutMaskArray,
+                                            backgroundColor: 'hsl(0, 78%, 62%)',
+                                        },
+                                        {
+                                            label: 'People not following Social Distancing',
+                                            data: peopleSocialDistancing,
+                                            backgroundColor: '#8e00b9',
+                                        }
                                         ]
                                     }}
                                 // options={ }

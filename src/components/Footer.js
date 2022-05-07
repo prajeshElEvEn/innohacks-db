@@ -11,6 +11,7 @@ const Footer = () => {
             fontFamily={'Poppins'}
             d='flex'
             justifyContent={{ base: 'center', md: 'right' }}
+            cursor='context-menu'
         >
             &copy; HamckerBazz {new Date().getFullYear()}
         </Box>
