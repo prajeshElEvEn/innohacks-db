@@ -45,14 +45,14 @@ const Navbar = () => {
                             @Ayush
                         </a>
                     </MenuItem>
-                    <MenuItem
+                    {/* <MenuItem
                         fontFamily={'Poppins'}
                         fontSize={'sm'}
                     >
                         <a href='https://github.com/prajeshElEvEn' target='_blank' rel='noopener noreferrer'>
                             @Prajesh
                         </a>
-                    </MenuItem>
+                    </MenuItem> */}
                     <MenuItem
                         fontFamily={'Poppins'}
                         fontSize={'sm'}

@@ -244,55 +244,6 @@ const Cards = () => {
                     h={'20rem'}
                     bg='white'
                     border='1px solid #e0e0e0'
-                    borderTop='5px solid hsl(0, 78%, 62%)'
-                    p={'2rem'}
-                    borderRadius={'1rem'}
-                    boxShadow={'0 0.5rem 1rem rgba(0, 0, 0, 0.15)'}
-                    transition={'all 0.2s ease-in-out'}
-                    _hover={{
-                        transform: 'scale(1.02)'
-                    }}
-                >
-                    <Heading as='h3' size='lg'
-                        fontFamily={'Poppins'}
-                    >
-                        Percentage of People without Mask
-                    </Heading>
-                    <Heading as='h2' size='2xl'
-                        fontFamily={'Poppins'}
-                        color='hsl(0, 78%, 62%)'
-                    >
-                        {calcMaskPercentage()}%
-                    </Heading>
-                    {/* <Text
-                        fontFamily={'Poppins'}
-                        color='gray.400'
-                    >
-                        Under development
-                    </Text> */}
-                    <Text
-                        fontFamily={'Poppins'}
-                    >
-                        Percentage of people identified by the model that are not wearing mask.
-                    </Text>
-                </Box>
-            </Box>
-            <Box
-                d={'flex'}
-                p={{ base: '3rem 1rem 0 1rem', md: '3rem 2rem 0 2rem' }}
-                justifyContent={'space-between'}
-                gap={'3rem'}
-                flexDirection={{ base: 'column', md: 'row' }}
-            >
-                <Box
-                    w={{ base: '100%', md: '48%' }}
-                    d={'flex'}
-                    gap={'0.5rem'}
-                    flexDirection={'column'}
-                    justifyContent={'center'}
-                    h={'20rem'}
-                    bg='white'
-                    border='1px solid #e0e0e0'
                     borderTop='5px solid #8e00b9'
                     p={'2rem'}
                     borderRadius={'1rem'}
@@ -325,6 +276,56 @@ const Cards = () => {
                         Total number of people identified by the model that are not following social distancing.
                     </Text>
                 </Box>
+                {/* <Box
+                    w={{ base: '100%', md: '48%' }}
+                    d={'flex'}
+                    gap={'0.5rem'}
+                    flexDirection={'column'}
+                    justifyContent={'center'}
+                    h={'20rem'}
+                    bg='white'
+                    border='1px solid #e0e0e0'
+                    borderTop='5px solid hsl(0, 78%, 62%)'
+                    p={'2rem'}
+                    borderRadius={'1rem'}
+                    boxShadow={'0 0.5rem 1rem rgba(0, 0, 0, 0.15)'}
+                    transition={'all 0.2s ease-in-out'}
+                    _hover={{
+                        transform: 'scale(1.02)'
+                    }}
+                >
+                    <Heading as='h3' size='lg'
+                        fontFamily={'Poppins'}
+                    >
+                        Percentage of People without Mask
+                    </Heading>
+                    <Heading as='h2' size='2xl'
+                        fontFamily={'Poppins'}
+                        color='hsl(0, 78%, 62%)'
+                    >
+                        {calcMaskPercentage()}%
+                    </Heading>
+                    <Text
+                        fontFamily={'Poppins'}
+                        color='gray.400'
+                    >
+                        Under development
+                    </Text>
+                    <Text
+                        fontFamily={'Poppins'}
+                    >
+                        Percentage of people identified by the model that are not wearing mask.
+                    </Text>
+                </Box> */}
+            </Box>
+            {/* <Box
+                d={'flex'}
+                p={{ base: '3rem 1rem 0 1rem', md: '3rem 2rem 0 2rem' }}
+                justifyContent={'space-between'}
+                gap={'3rem'}
+                flexDirection={{ base: 'column', md: 'row' }}
+            >
+
                 <Box
                     w={{ base: '100%', md: '48%' }}
                     d={'flex'}
@@ -354,19 +355,19 @@ const Cards = () => {
                     >
                         {calcSocialDistancingPercentage()}%
                     </Heading>
-                    {/* <Text
+                    <Text
                         fontFamily={'Poppins'}
                         color='gray.400'
                     >
                         Under development
-                    </Text> */}
+                    </Text>
                     <Text
                         fontFamily={'Poppins'}
                     >
                         Percentage of people identified by the model that are not following social distancing.
                     </Text>
                 </Box>
-            </Box>
+            </Box> */}
         </Box >
     )
 }

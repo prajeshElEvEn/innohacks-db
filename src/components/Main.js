@@ -75,10 +75,11 @@ const Main = () => {
                     bgClip='text'
                     bgGradient='linear(to-br, #ffae00, #f12711)'
                     cursor={'context-menu'}
+                    pb={'2rem'}
                 >
                     &lt;CoviZone&gt;
                 </Heading>
-                <Text fontSize='3xl'
+                {/* <Text fontSize='3xl'
                     textAlign={'center'}
                     fontFamily='Poppins'
                     color='#4a93f8'
@@ -92,8 +93,8 @@ const Main = () => {
                     cursor={'context-menu'}
                 >
                     by
-                </Text>
-                <Box
+                </Text> */}
+                {/* <Box
                     d='flex'
                     justifyContent='center'
                     alignItems='center'
@@ -114,7 +115,7 @@ const Main = () => {
                     >
                         HamckerBazz
                     </Heading>
-                </Box>
+                </Box> */}
             </Box>
             <Box
                 ref={contentBox}
